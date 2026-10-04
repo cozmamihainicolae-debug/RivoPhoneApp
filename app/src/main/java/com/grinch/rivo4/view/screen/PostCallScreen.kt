@@ -182,7 +182,12 @@ fun PostCallScreen(
                             }
                         }
                     }
-
+if (callState == Call.STATE_RINGING) {
+    PreviousCallInfo(
+        call = call,
+        phoneNumber = phoneNumber
+    )
+}
                     Spacer(modifier = Modifier.height(12.dp))
 
                     // Caller Card (Truecaller-style elevated container)
