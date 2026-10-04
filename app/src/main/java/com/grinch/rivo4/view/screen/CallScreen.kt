@@ -21,6 +21,7 @@ import android.widget.Toast
 import java.util.Calendar
 import com.grinch.rivo4.controller.reminder.CallbackReminderManager
 import com.grinch.rivo4.view.components.CallNotesSheet
+import com.grinch.rivo4.view.components.PreviousCallInfo
 import com.grinch.rivo4.view.components.ConferenceManagementSheet
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -498,7 +499,12 @@ fun ExpressiveCallScreen(
             }
 
             Spacer(modifier = Modifier.height(12.dp))
-
+if (callState == Call.STATE_RINGING) {
+    PreviousCallInfo(
+        call = call,
+        phoneNumber = phoneNumber
+    )
+}
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
